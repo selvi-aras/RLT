@@ -9,6 +9,10 @@ Update: On 13 September 2021, this paper is accepted for a publication in _Mathe
 This repository provides the following:
 - TBA
 
+## Final Notes
+The following scripts are also available upon request:
+- Global optimization of the original convex maximization problems via global optimization solvers
+- Our simulation codes where we iteratively call the optimization functions provided here to randomly generate problems, solve them, save the solutions, and plot the results. 
 
 ## Thank You
 Thank you for your interest in our work. If you found this work useful in your research and/or applications, please star this repository and cite:
