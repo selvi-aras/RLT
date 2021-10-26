@@ -39,6 +39,16 @@ The folders are summarized below (click on the relevant Section to get more info
   
   In Figure 3 of Section B.1, we compare the median of solution times ```our[2]```, ```rlt[2]```, and ```rltsdp[2]``` as well as the median deviation of ```rlt[1]``` and ```rltsdp[1]``` from ```our[1]``` for 25 randomly generated instances, for all `n` varying between 2 and 10.
 </details>
+  
+<details>
+  <summary> <b> Non-convex over cube and simplex </b> </summary>
+  
+  This folder is about the problem of non-convex maximization over the cartesian product of a hypercube (of size `k`, this vector is called `y`) and a simplex (of size `n - k`, this vector is called `x`). Here, the objective function is a combination of the ones in ```Main/optim.m``` and ```Non-convex hypercubic optimization/optim.m```, namely the convex function f similarly is the norm of a linear transofmraion of the input, however 1/(n-k) is being subtracted from the components of `x`, as well as, the logarithmic barrier function slightly varies between `x` and `y` as their extreme points are different. This folder is dedicated to the **second** problem in Appendix Section B.1 of the paper.
+  
+  The function ```optim.m``` takes inputs ```n``` and `k`, where in the paper we always take ```k = 3``` (i.e., the hypercube is three dimensional). The function then generates an example problem randomly similarly as in ```Main/optim.m```. The problem data is stored by saving ```D``` and ```Q``` where the notation is analogous to the paper's notation. Then, by using MOSEK solver, the function obtains the traditional RLT relaxation, the RLT/SDP relaxation, and the relaxation we propose, and saves these as ```rlt```, ```rltsdp```, and ```our```, respectively. Here, our implementation does not define `x` and `y` separately, we rather keep only one vector `x` of size `n`, hence define some additional matrices (`TX`, `TY`, `MX`, `MY`) to be able to compactly define the relaxation problems (e.g., `TX * x` extracts the original `x` and `TY * x` extracts the original `y`). As before, `rlt[1]` corresponds to the relaxation of the RLT relaxation, and `rlt[2]` corresponds to the solver time (same as `rltsdp` and `our`). As the original problem is not defined over a simplex, we do not have `rlt[1] = rltsdp[1]` anymore. However, as we proved in Theorem 3, we always have ```our[1] <= rltsdp[1] <= rlt[1]```, and our numerical experiments show that we have ```our[1] < rltsdp[1] < rlt[1]``` in general. Finally, although our method uses exponentially many variables to reformulate the `y` variable, as `k` is fixed, the proposed relaxation is very fast for larger `n` values and it also outperforms the traditional RLT and RLT/SDP relaxations in terms of the runtimes.
+  
+  In Figure 4 of Section B.1, we compare the median of solution times ```our[2]```, ```rlt[2]```, and ```rltsdp[2]``` for 25 randomly generated instances, for all `n` varying between 2 and 10.
+</details>
 
 ## Final Notes
 The following scripts are also available upon request:
