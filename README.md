@@ -30,6 +30,15 @@ The folders are summarized below (click on the relevant Section to get more info
   In Figure 2 of Section 3, we compare the median of ```our[2]```, ```rlt[2]```, and ```rltsdp[2]``` for 25 randomly generated instances, for all `n` varying between 10 and 1000.
 </details>
 
+<details>
+  <summary> <b> Non-convex hypercubic optimization </b> </summary>
+  
+  This folder is about the problem of non-convex maximization over a hypercube. Here, the objective function is almost identical with the one in ```Main/optim.m```, with the only difference being we do not subtract a vector of 1/n's from the decision vector (since the feasible region is not a simplex anymore). In other words, this folder is dedicated to the **first** problem in Appendix Section B.1 of the paper.
+  
+  The function ```optim.m``` takes inputs ```n``` and ```rhs``` where in the paper we always take ```rhs = 1``` (i.e., we have a unit hypercube). The function then generates an example problem randomly similarly as in ```Main/optim.m```. The problem data is stored by saving ```D``` and ```Q``` where the notation is analogous to the paper's notation. Then, by using MOSEK solver, the function obtains the traditional RLT relaxation, the RLT/SDP relaxation, and the relaxation we propose, and saves these as ```rlt```, ```rltsdp```, and ```our```, respectively. As before, `rlt[1]` corresponds to the relaxation of the RLT relaxation, and `rlt[2]` corresponds to the solver time (same as `rltsdp` and `our`). As the original problem is not defined over a simplex, we do not have `rlt[1] = rltsdp[1]` anymore. However, as we proved in Theorem 3, we always have ```our[1] <= rltsdp[1] <= rlt[1]```, and our numerical experiments show that we have ```our[1] < rltsdp[1] < rlt[1]``` in general. Finally, our method uses exponentially many variables to reformulate the problem as a non-convex optimization problem over a simplex, hence the runtime of our method will depend on `n`, while we always have `rlt[2] <= rltsdp[2]` by definition. 
+  
+  In Figure 3 of Section B.1, we compare the median of solution times ```our[2]```, ```rlt[2]```, and ```rltsdp[2]``` as well as the median deviation of ```rlt[1]``` and ```rltsdp[1]``` from ```our[1]``` for 25 randomly generated instances, for all `n` varying between 2 and 10.
+</details>
 
 ## Final Notes
 The following scripts are also available upon request:
