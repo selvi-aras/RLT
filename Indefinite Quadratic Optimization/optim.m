@@ -1,4 +1,4 @@
-function [rlt, rltsdp, our] = optim(n, type)
+function [rlt, rltsdp, our, Q] = optim(n, type)
 %% data generate
 if type == 1
     eigenvals = rand(n,1)*n - 3*n/4; %sample eigenvalues uniformly -- type 1
