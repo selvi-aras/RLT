@@ -1,4 +1,4 @@
-function [rlt, rltsdp, our, D, Q] = optim(n)
+function [rlt, rltsdp, our, D, Q] = optim(n, k)
 %% Generate Data
 k = 3;        %cube's size, we use 3 in the paper, but this can be changed here
 n = max(n,k); %in case n = 3 is given, as y has size 3 and x has size >= 0
