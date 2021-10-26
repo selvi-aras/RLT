@@ -6,15 +6,18 @@ The preprint (version of 8 May 2021) is available on [Optimization Online](http:
 Update: On 13 September 2021, this paper is accepted for a publication in _Mathematical Programming_. 
 
 ## Introduction
-This repository provides the following:
-- TBA
+This repository provides functions that:
+- generate the random data explained in Section 3, Appendix B.1, and Appendix B.2 of the paper
+- provide helper functions (e.g., decomposing an indefinite matrix as a difference of two psd matrices)
+- solve the RLT and RLT/SDP relaxations of the non-convex optimization problems that are studied in the experiments
+- solve the relaxations that are proposed in this paper (including non-convex optimization over a simplex, a hypercube, cartesian product of a simplex and a hypercube, as well as indefinite quadratic optimization).
 
 ## Dependencies
-**MATLAB** - 
+**MATLAB** - We use MATLAB 2018b to run the scripts. The scripts are compatible with the [latest release](https://uk.mathworks.com/downloads/) 2021a of MATLAB.
 
-**YALMIP** - 
+**YALMIP** - We use [YALMIP R20200930](https://yalmip.github.io/download/) to formulate optimization problems and solve them. The scripts are compatible with the [latest release](https://github.com/yalmip/YALMIP/releases/tag/R20210331) (as of 26 October 2021) R20210331 of YALMIP.
 
-**MOSEK** - 
+**MOSEK** - We use [MOSEK 9.2.28](https://www.mosek.com/documentation/). The scripts are compatible with the [latest release](https://www.mosek.com/documentation/) (as of 26 October 2021). Version >= 9.0 is required for latest conic optimization features (i.e., in the paper we use logarithmic barrier functions that can be reformulated as exponential cones).
 
 ## Description
 The following is a guide to use this repository. All the scripts are in ".m" format (MATLAB script files). 
