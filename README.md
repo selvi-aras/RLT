@@ -50,6 +50,16 @@ The folders are summarized below (click on the relevant Section to get more info
   In Figure 4 of Section B.1, we compare the median of solution times ```our[2]```, ```rlt[2]```, and ```rltsdp[2]``` for 25 randomly generated instances, for all `n` varying between 10 and 1000.
 </details>
 
+<details>
+  <summary> <b> Indefinite Quadratic Optimization </b> </summary>
+  
+  This folder is about the problem of indefinite quadratic maximization over a simplex. Here, the objective function is obtained via constructing a quadratic coefficient matrix by sampling its eigenvalues in certain ranges ([−7.5, 2.5] (type 1) or [−5, 5] (type 2)) as well as by sampling a uniformly sampled rotation matrix. This folder is dedicated to Appendix Section B.2 of the paper.
+  
+  The function ```optim.m``` takes inputs ```n``` and `type`, where the latter is either `1` or `2`. The function then generates an example problem randomly (see Section B.2 for the details). The problem data is stored by saving ```Q``` where the notation is analogous to the paper's notation (i.e., the objective function is `x' Q x`). The function then calls `eigen_trick.m` by inputting `Q` to obtain `Qplus` and `Qminus`, two psd matrices such that `Q = Qplus - Qminus`. The function then applies the traditional RLT and RLT/SDP relaxations to the whole non-convex term `x' Q x` (i.e., similar to `Main/optim.m` where g function is omitted), and these solutions are saves as `rlt` and `rltsdp`. Then, the function solves the proposed relaxation by simply decomposing f(x) = `x' Qplus x` and g(x) = `x' Qminus x` and applying the RLT relaxation only to the term f(x). As proven in the paper, applying RLT or RLT/SDP relaxation on f(x) are identical and we can also omit the matrix variable `X` by using `diag(x)` instead. Hence, we compare our method with `rlt` and `rltsdp` relaxations on the whole `x' Q x` function, and these techniques are in general incomparable. As our solution is using less variables and constraints than the RLT and RLT/SDP relaxations, we have `our[2] << rltsdp[2] << rlt[2]`. Moreover, the relaxations satisfy `rltsdp[1] <= rlt[1]` and `rltsdp[1] <= our [1]`, and comparison of `rlt[1]` and `our[1]` depends on the type of the problem.
+
+  In Figure 5 of Section B.2, we compare the median relaxation gaps of `our[2]` and `rlt[2]` with respect to `rltsdp[2]` for 25 randomly generated instances of both problem types, for all `n` varying between 10 and 100. In Figure 6 of Section B.2, the median solution times of `rlt[1]`, `rltsdp[1]`, and `our[1]` are compared for 25 randomly generated instances of problem type 1 (in terms of the runtimes type 1 and type 2 are similar), for all `n` varying between 10 and 1000.
+</details>  
+
 ## Final Notes
 The following scripts are also available upon request:
 - Global optimization of the original convex maximization problems via global optimization solvers
