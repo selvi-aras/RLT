@@ -3,7 +3,7 @@ Data generation and optimization codes of the paper _A Reformulation-Linearizati
 
 The preprint (version of 8 May 2021) is available on [Optimization Online](http://www.optimization-online.org/DB_FILE/2020/11/8098.pdf). The paper is presented at [OR63](https://www.theorsociety.com/events/annual-conference/).
 
-Update: On 13 September 2021, this paper is accepted for a publication in _Mathematical Programming_. 
+Update: On 13 September 2021, this paper is accepted for a publication in _Mathematical Programming_. On 5 November 2021, it is published online (see [Springer Link page](https://rdcu.be/cATD4))
 
 ## Introduction
 This repository provides functions that:
