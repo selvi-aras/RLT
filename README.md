@@ -71,12 +71,13 @@ The following scripts are also available upon request:
 ## Thank You
 Thank you for your interest in our work. If you found this work useful in your research and/or applications, please star this repository and cite:
 ```
-@article{selvi2020reformulation,
-  title={A Reformulation-Linearization Technique for Optimization over Simplices},
-  author={Selvi, Aras and Den Hertog, Dick and Wiesemann, Wolfram},
-  journal={Available on Optimization Online},
-  volume={8098},
-  year={2020}
+@article{selvi2021reformulation,
+  title={A reformulation-linearization technique for optimization over simplices},
+  author={Selvi, Aras and den Hertog, Dick and Wiesemann, Wolfram},
+  journal={Mathematical Programming},
+  pages={1--21},
+  year={2021},
+  publisher={Springer}
 }
 ```
 Please contact Aras (a.selvi19@imperial.ac.uk) if you encounter any issues using the scripts. For any other comment or question, please do not hesitate to contact us:
